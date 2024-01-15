@@ -15,19 +15,7 @@ using static System.Windows.Forms.DataFormats;
 
 namespace DayZ_Launcher
 {
-
-
-	//HttpResponseMessage response = await mf.client.GetAsync("getFileList/" + downloadGame);
-	//string received = response.Content.ReadAsStringAsync().Result;
-
-	//		if (response.StatusCode != HttpStatusCode.OK)
-	//		{
-	//			MessageBox.Show("Something went wrong! Please try again later!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-	//			return;
-	//		}
-
-
-internal class Downloader
+	internal class Downloader
 	{
 		public static Mainframe mf;
 
@@ -35,7 +23,7 @@ internal class Downloader
 		public static string gamePath;
 
 
-		public static string downloadcdn = "http://87.237.52.165:9660/DayZ028/";
+		public static string downloadcdn { get; set; }
 		public static System.Timers.Timer timer { get; set; }
 		static string currentlyDownloading { get; set; }
 		static string currentlyDownloadingKey { get; set; }
@@ -45,6 +33,10 @@ internal class Downloader
 		public static int downloadCount { get; set; }
 
 		public static Dictionary<string, string> fileNeedToDownload = new Dictionary<string, string>();
+
+
+
+		static bool isDownloading = false;
 
 
 		public static void startDownload(JArray serverjson)
@@ -59,17 +51,19 @@ internal class Downloader
 			for (int i = 0; i < serverjson.Count; i++)
 			{
 				string convertedValidPath = Filesystems.clientpath + "\\" + serverjson[i][0].ToString();
-			
+
 
 
 				if (File.Exists(convertedValidPath))
 				{
 					string clientByte = "";
 					clientfiles.TryGetValue(serverjson[i][0].ToString(), out clientByte);
+
 					
+
 					if (serverjson[i][1].ToString() != clientByte)
 					{
-					
+
 						fileNeedToDownload.Add(convertedValidPath, serverjson[i][0].ToString());
 					}
 					else
@@ -99,10 +93,12 @@ internal class Downloader
 					downloadCount = fileNeedToDownload.Count;
 					downloads = fileNeedToDownload;
 					downloader();
+				
 				}
 				else
 				{
 					downloader();
+					
 				}
 			}
 			else
@@ -116,6 +112,7 @@ internal class Downloader
 
 		public static void downloader()
 		{
+			isDownloading = true;	
 			if (downloadCount > 0)
 			{
 				var file = downloads.First();
@@ -135,9 +132,12 @@ internal class Downloader
 			}
 			else
 			{
+				isDownloading = false;
 				mf.metroLabel2.Visible = false;
 				mf.metroLabel3.Visible = false;
-				mf.metroLabel1.Text = "Finished! Loading serverbrowser...";			
+				mf.metroLabel3.Text = "";
+				mf.metroLabel2.Text = "";
+				mf.metroLabel1.Text = "Finished! Loading...";
 				mf.metroProgressBar1.Value = 100;
 				timer = new System.Timers.Timer(3000);
 				timer.Elapsed += Timer_Elapsed;
@@ -147,15 +147,66 @@ internal class Downloader
 			}
 		}
 
+
+		//public static async void GetInternetSpeed()
+		//{
+		//	while (isDownloading)
+		//	{
+		//		const double kb = 1024;
+
+		//		// do not use compression
+		//		using var client = new HttpClient();
+
+		//		int numberOfBytesRead = 0;
+
+		//		var buffer = new byte[10240].AsMemory();
+
+		//		// create request
+		//		var stream = await client.GetStreamAsync("https://www.google.com");
+
+		//		// start timer
+		//		DateTime dt1 = DateTime.UtcNow;
+
+		//		// download stuff
+		//		while (true)
+		//		{
+		//			var i = await stream.ReadAsync(buffer);
+		//			if (i < 1)
+		//				break;
+
+		//			numberOfBytesRead += i;
+		//		}
+
+		//		// end timer
+		//		DateTime dt2 = DateTime.UtcNow;
+
+		//		double kilobytes = numberOfBytesRead / kb;
+		//		double time = (dt2 - dt1).TotalSeconds;
+
+		//		// speed in Kb per Second.
+
+		//		mf.metroLabel4.Text = Convert.ToString((int)(kilobytes / time)) + " kbps";
+		//		Thread.Sleep(1000);
+		//	}			
+		//}
+
 		private static void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
 		{
 			mf.metroLabel1.Invoke((MethodInvoker)delegate { mf.metroLabel1.Visible = false; });
 			mf.Invoke((MethodInvoker)delegate { mf.BackImage = null; });
 			mf.metroProgressBar1.Invoke((MethodInvoker)delegate { mf.metroProgressBar1.Visible = false; });
-			mf.listView1.Invoke((MethodInvoker)delegate { mf.listView1.Visible = true; });		
+			mf.listView1.Invoke((MethodInvoker)delegate { mf.listView1.Visible = true; });  //serverbrowser
+			mf.pictureBox4.Invoke((MethodInvoker)delegate { mf.pictureBox4.Visible = true; });
+
 			timer.Enabled = false;
 			timer.Dispose();
+			timer = null;
+
+			Serverbrowser.LoadServerbrowser();
 		}
+
+
+
 
 		private static void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
@@ -188,8 +239,5 @@ internal class Downloader
 			downloadCount--;
 			downloader();
 		}
-
-	
-
 	}
 }

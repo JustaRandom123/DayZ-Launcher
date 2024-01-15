@@ -58,5 +58,122 @@ namespace DayZ_Launcher.Properties {
                 this["DayZ059"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0.2.4")]
+        public string version {
+            get {
+                return ((string)(this["version"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"[Launcher]
+Target = DayZ.exe
+StartIn = #CLIENTPATH#
+CommandLine = #ARGS#
+SteamClientPath = SmartSteamEmu\SmartSteamEmu.dll
+SteamClientPath64 = SmartSteamEmu\SmartSteamEmu64.dll
+Persist = 0
+ParanoidMode = 0
+InjectDll = 0
+
+[SmartSteamEmu]
+AvatarFilename = avatar.png
+PersonaName = #USERNAME#
+AppId = 221100
+SteamIdGeneration = GenerateRandom
+Language = English
+
+VR = False
+Offline = False
+QuickJoinHotkey = SHIFT + TAB
+MasterServer = 188.40.40.201:27010
+MasterServerGoldSrc = 188.40.40.201:27010
+[Achievements]
+FailOnNonExistenceStats = False
+
+[SSEOverlay]
+DisableOverlay = True
+OnlineMode = True
+Language = 
+ScreenshotHotkey = F12
+HookRefCount = True
+OnlineKey = 
+
+[DirectPatch]
+
+[Debug]
+EnableLog = False
+MarkLogHotkey = CTRL + ALT + M
+LogFilter = User Logged On
+Minidump = False
+
+[DLC]
+Default = True
+
+[Networking]
+BroadcastAddress = 192.168.0.1
+ListenPort = 31313
+MaximumPort = 10
+DiscoveryInterval = 3
+MaximumConnection = 200
+
+[PlayerManagement]
+AllowAnyoneConnect = False
+AdminPassword = 
+")]
+        public string SteamEmu028 {
+            get {
+                return ((string)(this["SteamEmu028"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string username {
+            get {
+                return ((string)(this["username"]));
+            }
+            set {
+                this["username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-connect=#IP# -port=#PORT# -name=#USERNAME# -mod=#MOD#")]
+        public string startParam {
+            get {
+                return ((string)(this["startParam"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DayZ052 {
+            get {
+                return ((string)(this["DayZ052"]));
+            }
+            set {
+                this["DayZ052"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DayZ046 {
+            get {
+                return ((string)(this["DayZ046"]));
+            }
+            set {
+                this["DayZ046"] = value;
+            }
+        }
     }
 }

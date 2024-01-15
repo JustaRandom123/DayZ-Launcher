@@ -21,6 +21,9 @@ namespace DayZ_Launcher
 		public static Dictionary<string, string> getClientFiles()
 		{
 			Dictionary<string, string> files = new Dictionary<string, string>();
+			
+
+
 			string[] filesFromPath1 = Directory.GetFiles(clientpath , "*.*", SearchOption.AllDirectories);
 			Downloader.mf.metroLabel1.Text = "Loading client files";
 			foreach (string file in filesFromPath1)

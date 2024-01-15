@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\DayZ Launcher\\DayZ Launcher\\DayZ Launcher.csproj": {}
+    "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ Launcher.csproj": {}
   },
   "projects": {
-    "D:\\Github\\DayZ Launcher\\DayZ Launcher\\DayZ Launcher.csproj": {
+    "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\DayZ Launcher\\DayZ Launcher\\DayZ Launcher.csproj",
+        "projectUniqueName": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ Launcher.csproj",
         "projectName": "DayZ Launcher",
-        "projectPath": "D:\\Github\\DayZ Launcher\\DayZ Launcher\\DayZ Launcher.csproj",
+        "projectPath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ Launcher.csproj",
         "packagesPath": "C:\\Users\\Jonas\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\DayZ Launcher\\DayZ Launcher\\obj\\",
+        "outputPath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

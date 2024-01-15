@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UJJJZ2wezJZiKKeRr85iRjcvKLEVUlKIegr6LfiAwIirZ0aRfayQxW1BygKFyv9DgsoNU7s2JRfzWHuODEPGfw==",
+  "dgSpecHash": "K5ZGplpEYeuFxAQqlQhD8gEgnfIyaRR0+2Mf/sVzFMP5yCHxRM2jRpbtYmL+oIlhPqQNvsfWxCPorJ/VMtohNg==",
   "success": true,
-  "projectFilePath": "D:\\Github\\DayZ Launcher\\DayZ Launcher\\DayZ Launcher.csproj",
+  "projectFilePath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jonas\\.nuget\\packages\\discordrichpresence\\1.2.1.24\\discordrichpresence.1.2.1.24.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\metromodernui\\1.4.0\\metromodernui.1.4.0.nupkg.sha512",

@@ -11,5 +11,77 @@
     <Setting Name="DayZ059" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="version" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.0.2.4</Value>
+    </Setting>
+    <Setting Name="SteamEmu028" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">[Launcher]
+Target = DayZ.exe
+StartIn = #CLIENTPATH#
+CommandLine = #ARGS#
+SteamClientPath = SmartSteamEmu\SmartSteamEmu.dll
+SteamClientPath64 = SmartSteamEmu\SmartSteamEmu64.dll
+Persist = 0
+ParanoidMode = 0
+InjectDll = 0
+
+[SmartSteamEmu]
+AvatarFilename = avatar.png
+PersonaName = #USERNAME#
+AppId = 221100
+SteamIdGeneration = GenerateRandom
+Language = English
+
+VR = False
+Offline = False
+QuickJoinHotkey = SHIFT + TAB
+MasterServer = 188.40.40.201:27010
+MasterServerGoldSrc = 188.40.40.201:27010
+[Achievements]
+FailOnNonExistenceStats = False
+
+[SSEOverlay]
+DisableOverlay = True
+OnlineMode = True
+Language = 
+ScreenshotHotkey = F12
+HookRefCount = True
+OnlineKey = 
+
+[DirectPatch]
+
+[Debug]
+EnableLog = False
+MarkLogHotkey = CTRL + ALT + M
+LogFilter = User Logged On
+Minidump = False
+
+[DLC]
+Default = True
+
+[Networking]
+BroadcastAddress = 192.168.0.1
+ListenPort = 31313
+MaximumPort = 10
+DiscoveryInterval = 3
+MaximumConnection = 200
+
+[PlayerManagement]
+AllowAnyoneConnect = False
+AdminPassword = 
+</Value>
+    </Setting>
+    <Setting Name="username" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="startParam" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">-connect=#IP# -port=#PORT# -name=#USERNAME# -mod=#MOD#</Value>
+    </Setting>
+    <Setting Name="DayZ052" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DayZ046" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
