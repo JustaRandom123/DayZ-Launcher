@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {}
+    "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {}
   },
   "projects": {
-    "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {
+    "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
         "projectName": "DayZ_Launcher",
-        "projectPath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
-        "packagesPath": "C:\\Users\\Jonas\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

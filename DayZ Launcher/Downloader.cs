@@ -239,5 +239,7 @@ namespace DayZ_Launcher
 			downloadCount--;
 			downloader();
 		}
+
+		
 	}
 }

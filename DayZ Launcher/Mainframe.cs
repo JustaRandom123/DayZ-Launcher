@@ -1,6 +1,7 @@
 using DayZ_Launcher.Properties;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 
 namespace DayZ_Launcher
@@ -224,6 +225,11 @@ namespace DayZ_Launcher
 
 					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 					{
+						if (fbd.SelectedPath.Contains("steamapps"))
+						{
+							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+							return;
+						}
 						Settings.Default.DayZ028 = fbd.SelectedPath;
 						Settings.Default.Save();										
 					}
@@ -372,6 +378,11 @@ namespace DayZ_Launcher
 
 					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 					{
+						if (fbd.SelectedPath.Contains("steamapps"))
+						{
+							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+							return;
+						}
 						Settings.Default.DayZ062 = fbd.SelectedPath;
 						Settings.Default.Save();
 					}
@@ -444,6 +455,11 @@ namespace DayZ_Launcher
 
 					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 					{
+						if (fbd.SelectedPath.Contains("steamapps"))
+						{
+							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+							return;
+						}
 						Settings.Default.DayZ046 = fbd.SelectedPath;
 						Settings.Default.Save();
 					}
@@ -562,6 +578,11 @@ namespace DayZ_Launcher
 
 				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 				{
+					if (fbd.SelectedPath.Contains("steamapps"))
+					{
+						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+						return;
+					}
 					Settings.Default.DayZ028 = fbd.SelectedPath;
 					Settings.Default.Save();
 					textBox1.Text = fbd.SelectedPath;
@@ -583,6 +604,12 @@ namespace DayZ_Launcher
 
 				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 				{
+					if (fbd.SelectedPath.Contains("steamapps"))
+					{
+						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+						return;
+					}
+
 					Settings.Default.DayZ046 = fbd.SelectedPath;
 					Settings.Default.Save();
 					textBox3.Text = fbd.SelectedPath;
@@ -604,6 +631,11 @@ namespace DayZ_Launcher
 
 				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
 				{
+					if (fbd.SelectedPath.Contains("steamapps"))
+					{
+						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+						return;
+					}
 					Settings.Default.DayZ062 = fbd.SelectedPath;
 					Settings.Default.Save();
 					textBox4.Text = fbd.SelectedPath;

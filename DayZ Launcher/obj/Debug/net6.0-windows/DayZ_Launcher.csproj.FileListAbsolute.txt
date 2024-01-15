@@ -23,3 +23,28 @@ D:\Github\DayZ Launcher\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\ref
 D:\Github\DayZ Launcher\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.pdb
 D:\Github\DayZ Launcher\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.genruntimeconfig.cache
 D:\Github\DayZ Launcher\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\ref\DayZ_Launcher.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.exe
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.dll.config
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.deps.json
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.runtimeconfig.json
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DayZ_Launcher.pdb
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\DiscordRPC.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\MetroFramework.Design.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\MetroFramework.Fonts.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\MetroFramework.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.Mainframe.resources
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.Properties.Resources.resources
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.csproj.GenerateResource.cache
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.AssemblyInfo.cs
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.csproj.CopyComplete
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\refint\DayZ_Launcher.dll
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.pdb
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\DayZ_Launcher.genruntimeconfig.cache
+C:\Users\User\Documents\Github\DayZ-Launcher\DayZ Launcher\obj\Debug\net6.0-windows\ref\DayZ_Launcher.dll

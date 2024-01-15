@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "K5ZGplpEYeuFxAQqlQhD8gEgnfIyaRR0+2Mf/sVzFMP5yCHxRM2jRpbtYmL+oIlhPqQNvsfWxCPorJ/VMtohNg==",
+  "dgSpecHash": "3aRQN8YcYDY788FXswqvmuWwN9Rcvj5+4gjNVbJnJB3GC0qCKsXaCm62XSyd+BvVMJtMUzCdAR6Ew0yMVlbPNg==",
   "success": true,
-  "projectFilePath": "D:\\Github\\DayZ Launcher\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Jonas\\.nuget\\packages\\discordrichpresence\\1.2.1.24\\discordrichpresence.1.2.1.24.nupkg.sha512",
-    "C:\\Users\\Jonas\\.nuget\\packages\\metromodernui\\1.4.0\\metromodernui.1.4.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "C:\\Users\\Jonas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\discordrichpresence\\1.2.1.24\\discordrichpresence.1.2.1.24.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\metromodernui\\1.4.0\\metromodernui.1.4.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
   ],
   "logs": [
     {
