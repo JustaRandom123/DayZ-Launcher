@@ -75,7 +75,7 @@
 			// 
 			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
 			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox1.Image = global::DayZ_Launcher.Properties.Resources._028start;
+			this.pictureBox1.Image = global::DayZ_Launcher.Properties.Resources._052start;
 			this.pictureBox1.Location = new System.Drawing.Point(165, 146);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(300, 440);
