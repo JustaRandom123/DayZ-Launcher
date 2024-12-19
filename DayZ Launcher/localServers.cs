@@ -8,21 +8,23 @@ namespace DayZ_Launcher
 {
     internal class localServers
     {
-        public async Task<string> getPublicIp()
+        public static string localIp {  get; set; } 
+
+        public static async Task getPublicIp()
         {
             string ip = String.Empty;
             string url = "https://api.ipify.org"; // Alternativ: "https://checkip.amazonaws.com"
 
             try
             {
-                using HttpClient client = new HttpClient();           
-                ip =  await client.GetStringAsync(url);
+                using HttpClient client = new HttpClient();
+                localIp =  await client.GetStringAsync(url);
             }
             catch (Exception ex)
             {
-                ip = "Error";            
+                localIp = "Error";            
             }
-            return ip;
+           // return ip;
         }
     }
 }

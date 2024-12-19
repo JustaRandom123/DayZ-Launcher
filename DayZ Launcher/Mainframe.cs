@@ -192,6 +192,9 @@ namespace DayZ_Launcher
             }
 
 
+            await localServers.getPublicIp();
+
+
             // //Handshake
 
             //try

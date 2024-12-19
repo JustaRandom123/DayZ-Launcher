@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DayZ_Launcher;
 using DayZ_Launcher.Properties;
 using Newtonsoft.Json.Linq;
+using static System.Net.WebRequestMethods;
 
 internal class Serverbrowser
 {
@@ -43,6 +44,37 @@ internal class Serverbrowser
             mf.metroProgressSpinner1.Visible = true;
             mf.metroProgressSpinner1.BringToFront();
         });
+
+        ///loading local servers
+
+
+        HttpResponseMessage responseLocalServer = await Mainframe.client.GetAsync($"getLocalServers/{localServers.localIp}/{gameVersion}");
+        string receivedLocalServer = responseLocalServer.Content.ReadAsStringAsync().Result;
+        if (responseLocalServer.StatusCode == HttpStatusCode.OK)
+        {
+            JArray localServerlist = JArray.Parse(receivedLocalServer.ToString());
+
+            if (localServerlist.ToString() != "[]")
+            {
+                foreach (JToken serverInfo in localServerlist)
+                {
+                    ListViewItem item = new ListViewItem("Your local server");
+                    item.Tag = "127.0.0.1:" + serverInfo["port"].ToString();
+                    item.SubItems.Add("0 / 0");
+                    item.SubItems.Add("dayz_Auto");
+                    item.SubItems.Add(serverInfo["version"].ToString());
+                    item.SubItems.Add("");
+                    mf.listView1.Invoke((MethodInvoker)delegate
+                    {
+                        mf.listView1.Items.Add(item);
+                    });
+                }
+            }
+        }
+
+
+
+
         HttpResponseMessage response = await Mainframe.client.GetAsync("getServerList/" + gameVersion + "/");
         string received = response.Content.ReadAsStringAsync().Result;
         if (response.StatusCode == HttpStatusCode.OK)
@@ -67,30 +99,32 @@ internal class Serverbrowser
                     {
                         mf.listView1.Items.Add(item);
                     });
-                    if ((await Mainframe.client.GetAsync("serverHasPassword/" + item.Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        Button testButton = new Button();
-                        testButton.Text = "";
-                        //testButton.BackgroundImage = Resources._lock;   lock image is missing
-                        testButton.BackgroundImageLayout = ImageLayout.Stretch;
-                        testButton.BackColor = Color.Transparent;
-                        testButton.FlatStyle = FlatStyle.Flat;
-                        testButton.FlatAppearance.BorderSize = 0;
-                        mf.listView1.Invoke((MethodInvoker)delegate
-                        {
-                            testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
-                        });
-                        mf.listView1.Invoke((MethodInvoker)delegate
-                        {
-                            testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
-                        });
-                        mf.listView1.Invoke((MethodInvoker)delegate
-                        {
-                            mf.listView1.Controls.Add(testButton);
-                        });
-                    }
+                    //if ((await Mainframe.client.GetAsync("serverHasPassword/" + item.Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    //{
+                    //    Button testButton = new Button();
+                    //    testButton.Text = "";
+                    //    //testButton.BackgroundImage = Resources._lock;   lock image is missing
+                    //    testButton.BackgroundImageLayout = ImageLayout.Stretch;
+                    //    testButton.BackColor = Color.Transparent;
+                    //    testButton.FlatStyle = FlatStyle.Flat;
+                    //    testButton.FlatAppearance.BorderSize = 0;
+                    //    mf.listView1.Invoke((MethodInvoker)delegate
+                    //    {
+                    //        testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
+                    //    });
+                    //    mf.listView1.Invoke((MethodInvoker)delegate
+                    //    {
+                    //        testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
+                    //    });
+                    //    mf.listView1.Invoke((MethodInvoker)delegate
+                    //    {
+                    //        mf.listView1.Controls.Add(testButton);
+                    //    });
+                    //}
+             
+
                     playersCountGeneral += Convert.ToInt32(serverData[0]["players"].ToString());
-                }
+                }           
                 mf.Invoke((MethodInvoker)delegate
                 {
                     mf.Text = "DayZ " + gameVersion + " - " + playersCountGeneral + " players online";
@@ -120,6 +154,37 @@ internal class Serverbrowser
         {
             MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
         }
+
+
+
+
+        //getLocalServers
+
+
+        //HttpResponseMessage responseLocalServer = await Mainframe.client.GetAsync($"getLocalServers/{localServers.getPublicIp().Result}/{gameVersion}");
+        //string receivedLocalServer = responseLocalServer.Content.ReadAsStringAsync().Result;
+        //if (responseLocalServer.StatusCode == HttpStatusCode.OK)
+        //{
+        //    JArray localServerlist = JArray.Parse(receivedLocalServer.ToString());
+        //    // MessageBox.Show(localServers.getPublicIp().Result);
+        //    if (localServerlist.ToString() != "[]")
+        //    {
+        //        //foreach (JToken serverInfo in localServerlist)
+        //        //{
+        //        //    ListViewItem item = new ListViewItem("Your local server");
+        //        //    item.Tag =  "localhost:" + serverInfo["port"].ToString();
+        //        //    item.SubItems.Add("0 / 0");
+        //        //    item.SubItems.Add("dayz_Auto");
+        //        //    item.SubItems.Add(serverInfo["version"].ToString());
+        //        //    item.SubItems.Add("");
+        //        //    mf.listView1.Invoke((MethodInvoker)delegate
+        //        //    {
+        //        //        mf.listView1.Items.Add(item);
+        //        //    });
+        //        //}
+        //        //mf.Refresh();
+        //    }
+        //}
     }
 
     public static void checkRunningGames()
