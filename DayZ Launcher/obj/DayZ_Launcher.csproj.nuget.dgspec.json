@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {}
+    "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {
+    "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+        "projectUniqueName": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
         "projectName": "DayZ_Launcher",
-        "projectPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\obj\\",
+        "projectPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+        "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
+        "outputPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -43,6 +48,10 @@
             "DiscordRichPresence": {
               "target": "Package",
               "version": "[1.2.1.24, )"
+            },
+            "Facepunch.Steamworks": {
+              "target": "Package",
+              "version": "[2.3.3, )"
             },
             "MetroModernUI": {
               "target": "Package",
@@ -72,7 +81,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

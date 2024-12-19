@@ -18,6 +18,14 @@
           }
         }
       },
+      "Facepunch.Steamworks/2.3.3": {
+        "runtime": {
+          "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MetroModernUI/1.4.0": {
         "runtime": {
           "lib/net/MetroFramework.Design.dll": {
@@ -123,6 +131,13 @@
       "sha512": "sha512-DVmmlFQ/oQmidNRmZhPzYjC7ryaT4beWcKaMKPVw6fhOzM/HOoY6NOL4KMOYEnD4M7SNsODjleYimvUNIZcbiA==",
       "path": "discordrichpresence/1.2.1.24",
       "hashPath": "discordrichpresence.1.2.1.24.nupkg.sha512"
+    },
+    "Facepunch.Steamworks/2.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7nUjWX/uy6JbDX7Q3n8ij7vrpWjTM0S8hXO24R3ZwQ0QgY0sXVlxzh3unmYoLvKGi31rzDHqGX68I169hnHNxQ==",
+      "path": "facepunch.steamworks/2.3.3",
+      "hashPath": "facepunch.steamworks.2.3.3.nupkg.sha512"
     },
     "MetroModernUI/1.4.0": {
       "type": "package",

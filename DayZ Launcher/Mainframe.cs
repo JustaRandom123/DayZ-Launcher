@@ -15,37 +15,55 @@ namespace DayZ_Launcher
 
 		public Mainframe()
 		{
-			InitializeComponent();
-			this.pictureBox1.MouseEnter += PictureBox1_MouseEnter;
-			this.pictureBox1.MouseLeave += PictureBox1_MouseLeave;
 
-			//this.pictureBox2.MouseEnter += PictureBox2_MouseEnter;  //059
-			//this.pictureBox2.MouseLeave += PictureBox2_MouseLeave;
+            InitializeComponent();
+            pictureBox1.MouseEnter += PictureBox1_MouseEnter;
+            pictureBox1.MouseLeave += PictureBox1_MouseLeave;
+            pictureBox3.MouseEnter += PictureBox3_MouseEnter;
+            pictureBox3.MouseLeave += PictureBox3_MouseLeave;
+            pictureBox5.MouseEnter += PictureBox5_MouseEnter;
+            pictureBox5.MouseLeave += PictureBox5_MouseLeave;
+            base.FormClosing += Mainframe_FormClosing;
+            Downloader.mf = this;
+            GameStarter.mf = this;
+            Serverbrowser.mf = this;
+            VisualEffects.mf = this;
+            client.Timeout = TimeSpan.FromSeconds(14.0);
+            client.BaseAddress = new Uri("http://134.255.252.219:8000/");
+            pingTimer.Elapsed += PingTimer_Elapsed;
+            pingTimer.AutoReset = true;
+            Discord.Initialize();
+            //InitializeComponent();
+            //this.pictureBox1.MouseEnter += PictureBox1_MouseEnter;
+            //this.pictureBox1.MouseLeave += PictureBox1_MouseLeave;
+
+            ////this.pictureBox2.MouseEnter += PictureBox2_MouseEnter;  //059
+            ////this.pictureBox2.MouseLeave += PictureBox2_MouseLeave;
 
 
 
-			this.pictureBox3.MouseEnter += PictureBox3_MouseEnter;
-			this.pictureBox3.MouseLeave += PictureBox3_MouseLeave;
+            //this.pictureBox3.MouseEnter += PictureBox3_MouseEnter;
+            //this.pictureBox3.MouseLeave += PictureBox3_MouseLeave;
 
 
-			this.pictureBox5.MouseEnter += PictureBox5_MouseEnter;
-			this.pictureBox5.MouseLeave += PictureBox5_MouseLeave;
+            //this.pictureBox5.MouseEnter += PictureBox5_MouseEnter;
+            //this.pictureBox5.MouseLeave += PictureBox5_MouseLeave;
 
 
 
-			this.FormClosing += Mainframe_FormClosing;
+            //this.FormClosing += Mainframe_FormClosing;
 
-			Downloader.mf = this;
-			GameStarter.mf = this;
-			Serverbrowser.mf = this;
-			VisualEffects.mf = this;
-			client.Timeout = TimeSpan.FromSeconds(14);
-			client.BaseAddress = new Uri("http://193.23.161.212:8000/");
-			pingTimer.Elapsed += PingTimer_Elapsed;
-			pingTimer.AutoReset = true;
+            //Downloader.mf = this;
+            //GameStarter.mf = this;
+            //Serverbrowser.mf = this;
+            //VisualEffects.mf = this;
+            //client.Timeout = TimeSpan.FromSeconds(14);
+            //client.BaseAddress = new Uri("http://134.255.252.219:8000/");
+            //pingTimer.Elapsed += PingTimer_Elapsed;
+            //pingTimer.AutoReset = true;
 
-			Discord.Initialize();
-		}
+            //Discord.Initialize();
+        }
 
 		private void Mainframe_FormClosing(object? sender, FormClosingEventArgs e)
 		{
@@ -123,50 +141,99 @@ namespace DayZ_Launcher
 
 		}
 
-		private async void Mainframe_Load(object sender, EventArgs e)
+        public static bool checkMultipleInstances()
+        {
+            if (Process.GetProcessesByName("DayZ_Launcher").Length >= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private async void Mainframe_Load(object sender, EventArgs e)
 		{
-			 //Handshake
-			
-			try
-			{
-				HttpResponseMessage response = await client.GetAsync("handshake/");		
-				string received = response.Content.ReadAsStringAsync().Result;			
-				if (response.StatusCode == HttpStatusCode.OK)
-				{			
-					HttpResponseMessage versionCheck = await client.GetAsync("update/dayzlauncher/" + Settings.Default.version + "/");					
-					if (versionCheck.StatusCode == HttpStatusCode.UpgradeRequired)  //update needed
-					{
-						MessageBox.Show("New update required!", "Update",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-						ExecuteAsAdmin(Application.StartupPath + "\\UpdaterSystem.exe");
-						Application.Exit();
-						return;
-					}
 
-				    if(!String.IsNullOrEmpty(Settings.Default.username))
-					{
-						textBox2.Text = Settings.Default.username;
-					}
-					
-					pingTimer.Start();
-				}
-				else if (response.StatusCode == HttpStatusCode.Unauthorized)
-				{					
-					MessageBox.Show("To many requests! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					Application.Exit();
-					return;
-				}
-				//Console.WriteLine("Handshake: [" + response.StatusCode + "]");
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Server connection timeout! Please try again later","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-				Application.Exit();
-				return;
-			}
+            if (checkMultipleInstances())
+            {
+                MessageBox.Show("Launcher is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                Application.Exit();
+                return;
+            }
+            SteamHandler.InitializeSteam();
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("handshake/");
+                _ = response.Content.ReadAsStringAsync().Result;
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    if ((await client.GetAsync("update/dayzlauncher/" + Settings.Default.version + "/")).StatusCode == HttpStatusCode.UpgradeRequired)
+                    {
+                        MessageBox.Show("New update required!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        ExecuteAsAdmin(Application.StartupPath + "\\UpdaterSystem.exe");
+                        Application.Exit();
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(Settings.Default.username))
+                    {
+                        textBox2.Text = Settings.Default.username;
+                    }
+                    pingTimer.Start();
+                }
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("To many requests! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    Application.Exit();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Server connection timeout! Please try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                Application.Exit();
+            }
 
 
-			//Handshake end
-		}
+            // //Handshake
+
+            //try
+            //{
+            //	HttpResponseMessage response = await client.GetAsync("handshake/");		
+            //	string received = response.Content.ReadAsStringAsync().Result;			
+            //	if (response.StatusCode == HttpStatusCode.OK)
+            //	{			
+            //		HttpResponseMessage versionCheck = await client.GetAsync("update/dayzlauncher/" + Settings.Default.version + "/");					
+            //		if (versionCheck.StatusCode == HttpStatusCode.UpgradeRequired)  //update needed
+            //		{
+            //			MessageBox.Show("New update required!", "Update",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            //			ExecuteAsAdmin(Application.StartupPath + "\\UpdaterSystem.exe");
+            //			Application.Exit();
+            //			return;
+            //		}
+
+            //	    if(!String.IsNullOrEmpty(Settings.Default.username))
+            //		{
+            //			textBox2.Text = Settings.Default.username;
+            //		}
+
+            //		pingTimer.Start();
+            //	}
+            //	else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            //	{					
+            //		MessageBox.Show("To many requests! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //		Application.Exit();
+            //		return;
+            //	}
+            //	//Console.WriteLine("Handshake: [" + response.StatusCode + "]");
+            //}
+            //catch (Exception ex)
+            //{
+            //	MessageBox.Show("Server connection timeout! Please try again later","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //	Application.Exit();
+            //	return;
+            //}
+
+
+            //Handshake end
+        }
 
 
 
@@ -213,313 +280,239 @@ namespace DayZ_Launcher
 			proc.Start();
 		}
 
-		private async void pictureBox1_Click_1(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(Settings.Default.DayZ028)) 
-			{
-				using (var fbd = new FolderBrowserDialog())
-				{
-					fbd.Description = "Select the path where you want to install DayZ 0.28 or the path of already existing files!";
-					DialogResult result = fbd.ShowDialog();
+        private async void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Settings.Default.DayZ052))
+            {
+                using FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.Description = "Select the path where you want to install DayZ 0.52 or the path of already existing files!";
+                DialogResult result = fbd.ShowDialog();
+                if (result != DialogResult.OK || string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    return;
+                }
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ052 = fbd.SelectedPath;
+                Settings.Default.Save();
+            }
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            Settings.Default.username = textBox2.Text;
+            Settings.Default.Save();
+            Downloader.downloadGame = "DayZ_052";
+            Downloader.downloadcdn = "https://cdn.phoenixnetwork.net/oldschooldayz/DayZ052/";
+            Downloader.gamePath = Settings.Default.DayZ052;
+            Filesystems.clientpath = Settings.Default.DayZ052;
+            Serverbrowser.gameVersion = "0.52.126002";
+            HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
+            string received = response.Content.ReadAsStringAsync().Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine("Filelist ok!");
+                Downloader.startDownload(JArray.Parse(received));
+                metroProgressBar1.Visible = true;
+                metroLabel1.Visible = true;
+                metroLabel2.Visible = true;
+                metroLabel3.Visible = true;
+                pictureBox1.Enabled = false;
+                pictureBox3.Enabled = false;
+                pictureBox5.Enabled = false;
+                textBox2.Enabled = false;
+                pictureBox4.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        //private async void pictureBox2_Click(object sender, EventArgs e)
+        //{
+        ////	MessageBox.Show("Currently not available! Coming soon!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        ////	return;
+
+        //	if (String.IsNullOrEmpty(Settings.Default.DayZ059))
+        //	{
+        //		using (var fbd = new FolderBrowserDialog())
+        //		{
+        //			fbd.Description = "Select the path where you want to install DayZ 0.59 or the path of already existing files!";
+        //			DialogResult result = fbd.ShowDialog();
 
 
-					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-					{
-						if (fbd.SelectedPath.Contains("steamapps"))
-						{
-							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-							return;
-						}
-						Settings.Default.DayZ028 = fbd.SelectedPath;
-						Settings.Default.Save();										
-					}
-					else
-					{
-						return;
-					}
-				}
-			}
-
-			if (String.IsNullOrEmpty(textBox2.Text))
-			{
-				MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
-			Settings.Default.username = textBox2.Text;
-			Settings.Default.Save();
-			Downloader.downloadGame = "DayZ_028";
-			Downloader.downloadcdn = "http://193.23.161.212:9660/DayZ028/";
-			Downloader.gamePath = Settings.Default.DayZ028;
-			Filesystems.clientpath = Settings.Default.DayZ028;
-			Serverbrowser.gameVersion = "0.28.113734";
+        //			if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+        //			{
+        //				Settings.Default.DayZ059 = fbd.SelectedPath;
+        //				Settings.Default.Save();
+        //			}
+        //			else
+        //			{
+        //				return;
+        //			}
+        //		}
+        //	}
 
 
-		//	this.Controls.Remove(pictureBox1);
-		//	this.Controls.Remove(pictureBox2);
-		//this.Controls.Remove(pictureBox3);
-		//this.BackImage = null;
+        //	if (String.IsNullOrEmpty(textBox2.Text))
+        //	{
+        //		MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //		return;
+        //	}
+
+        //	Settings.Default.username = textBox2.Text;
+        //	Settings.Default.Save();
+        //	Downloader.downloadGame = "DayZ_059";
+        //	Downloader.downloadcdn = "http://134.255.252.219:9660/DayZ059/";
+        //	Downloader.gamePath = Settings.Default.DayZ059;
+        //	Filesystems.clientpath = Settings.Default.DayZ059;
+        //	Serverbrowser.gameVersion = "0.53.126002";
+        //	//this.Controls.Remove(pictureBox1);
+        //	//	this.Controls.Remove(pictureBox2);
+        //	//	this.Controls.Remove(pictureBox3);
+        //	//this.BackImage = null;
+
+        //	HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
+        //	string received = response.Content.ReadAsStringAsync().Result;
+
+        //	if (response.StatusCode == HttpStatusCode.OK)
+        //	{
+        //		Console.WriteLine("Filelist ok!");
+
+        //		Downloader.startDownload(JArray.Parse(received));
+        //		metroProgressBar1.Visible = true;
+        //		metroLabel1.Visible = true;
+        //		metroLabel2.Visible = true;
+        //		metroLabel3.Visible = true;
+
+        //		pictureBox1.Enabled = false;
+        //		//pictureBox2.Enabled = false;
+        //		pictureBox3.Enabled = false;
+        //		pictureBox5.Enabled = false;
+
+        //		textBox2.Enabled = false;
+
+        //	}
+        //	else
+        //	{
+        //		MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //		return;
+        //	}
+        //}
+
+        private async void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Settings.Default.DayZ062))
+            {
+                using FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.Description = "Select the path where you want to install DayZ 0.62 or the path of already existing files!";
+                DialogResult result = fbd.ShowDialog();
+                if (result != DialogResult.OK || string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    return;
+                }
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ062 = fbd.SelectedPath;
+                Settings.Default.Save();
+            }
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            Settings.Default.username = textBox2.Text;
+            Settings.Default.Save();
+            Downloader.downloadGame = "DayZ_062";
+            Downloader.downloadcdn = "https://cdn.phoenixnetwork.net/oldschooldayz/DayZ062/";
+            Downloader.gamePath = Settings.Default.DayZ062;
+            Filesystems.clientpath = Settings.Default.DayZ062;
+            Serverbrowser.gameVersion = "0.62.140099";
+            HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
+            string received = response.Content.ReadAsStringAsync().Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine("Filelist ok!");
+                Downloader.startDownload(JArray.Parse(received));
+                metroProgressBar1.Visible = true;
+                metroLabel1.Visible = true;
+                metroLabel2.Visible = true;
+                metroLabel3.Visible = true;
+                pictureBox1.Enabled = false;
+                pictureBox3.Enabled = false;
+                pictureBox5.Enabled = false;
+                textBox2.Enabled = false;
+                pictureBox4.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
 
+        private async void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Settings.Default.DayZ046))
+            {
+                using FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.Description = "Select the path where you want to install DayZ 0.46 or the path of already existing files!";
+                DialogResult result = fbd.ShowDialog();
+                if (result != DialogResult.OK || string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    return;
+                }
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ046 = fbd.SelectedPath;
+                Settings.Default.Save();
+            }
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            Settings.Default.username = textBox2.Text;
+            Settings.Default.Save();
+            Downloader.downloadGame = "DayZ_046";
+            Downloader.downloadcdn = "https://cdn.phoenixnetwork.net/oldschooldayz/DayZ046/";
+            Downloader.gamePath = Settings.Default.DayZ046;
+            Filesystems.clientpath = Settings.Default.DayZ046;
+            Serverbrowser.gameVersion = "0.46.126002";
+            HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
+            string received = response.Content.ReadAsStringAsync().Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine("Filelist ok!");
+                Downloader.startDownload(JArray.Parse(received));
+                metroProgressBar1.Visible = true;
+                metroLabel1.Visible = true;
+                metroLabel2.Visible = true;
+                metroLabel3.Visible = true;
+                pictureBox1.Enabled = false;
+                pictureBox3.Enabled = false;
+                pictureBox5.Enabled = false;
+                textBox2.Enabled = false;
+                pictureBox4.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
-			HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
-			string received = response.Content.ReadAsStringAsync().Result;
-
-			if (response.StatusCode == HttpStatusCode.OK)
-			{
-				Console.WriteLine("Filelist ok!");
-			
-				Downloader.startDownload(JArray.Parse(received));
-				metroProgressBar1.Visible = true;
-				metroLabel1.Visible = true;
-				metroLabel2.Visible = true;
-				metroLabel3.Visible = true;
-
-				pictureBox1.Enabled= false;
-				//pictureBox2.Enabled = false;
-				pictureBox3.Enabled = false;
-				pictureBox5.Enabled = false;
-				textBox2.Enabled = false;
-				pictureBox4.Enabled = false;
-
-			}
-			else
-			{
-				MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-					
-		}
-
-		//private async void pictureBox2_Click(object sender, EventArgs e)
-		//{
-		////	MessageBox.Show("Currently not available! Coming soon!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
-		////	return;
-
-		//	if (String.IsNullOrEmpty(Settings.Default.DayZ059))
-		//	{
-		//		using (var fbd = new FolderBrowserDialog())
-		//		{
-		//			fbd.Description = "Select the path where you want to install DayZ 0.59 or the path of already existing files!";
-		//			DialogResult result = fbd.ShowDialog();
-
-
-		//			if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-		//			{
-		//				Settings.Default.DayZ059 = fbd.SelectedPath;
-		//				Settings.Default.Save();
-		//			}
-		//			else
-		//			{
-		//				return;
-		//			}
-		//		}
-		//	}
-
-
-		//	if (String.IsNullOrEmpty(textBox2.Text))
-		//	{
-		//		MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		//		return;
-		//	}
-
-		//	Settings.Default.username = textBox2.Text;
-		//	Settings.Default.Save();
-		//	Downloader.downloadGame = "DayZ_059";
-		//	Downloader.downloadcdn = "http://193.23.161.212:9660/DayZ059/";
-		//	Downloader.gamePath = Settings.Default.DayZ059;
-		//	Filesystems.clientpath = Settings.Default.DayZ059;
-		//	Serverbrowser.gameVersion = "0.53.126002";
-		//	//this.Controls.Remove(pictureBox1);
-		//	//	this.Controls.Remove(pictureBox2);
-		//	//	this.Controls.Remove(pictureBox3);
-		//	//this.BackImage = null;
-
-		//	HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
-		//	string received = response.Content.ReadAsStringAsync().Result;
-
-		//	if (response.StatusCode == HttpStatusCode.OK)
-		//	{
-		//		Console.WriteLine("Filelist ok!");
-
-		//		Downloader.startDownload(JArray.Parse(received));
-		//		metroProgressBar1.Visible = true;
-		//		metroLabel1.Visible = true;
-		//		metroLabel2.Visible = true;
-		//		metroLabel3.Visible = true;
-
-		//		pictureBox1.Enabled = false;
-		//		//pictureBox2.Enabled = false;
-		//		pictureBox3.Enabled = false;
-		//		pictureBox5.Enabled = false;
-
-		//		textBox2.Enabled = false;
-
-		//	}
-		//	else
-		//	{
-		//		MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		//		return;
-		//	}
-		//}
-
-		private async void pictureBox3_Click(object sender, EventArgs e)
-		{
-			//MessageBox.Show("Currently not available! Coming soon!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		//	return;
-
-			if (String.IsNullOrEmpty(Settings.Default.DayZ062))
-			{
-				using (var fbd = new FolderBrowserDialog())
-				{
-					fbd.Description = "Select the path where you want to install DayZ 0.62 or the path of already existing files!";
-					DialogResult result = fbd.ShowDialog();
-
-
-					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-					{
-						if (fbd.SelectedPath.Contains("steamapps"))
-						{
-							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-							return;
-						}
-						Settings.Default.DayZ062 = fbd.SelectedPath;
-						Settings.Default.Save();
-					}
-					else
-					{
-						return;
-					}
-				}
-			}
-
-
-			if (String.IsNullOrEmpty(textBox2.Text))
-			{
-				MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
-			Settings.Default.username = textBox2.Text;
-			Settings.Default.Save();
-			Downloader.downloadGame = "DayZ_062";
-			Downloader.downloadcdn = "http://193.23.161.212:9660/DayZ062/";
-			Downloader.gamePath = Settings.Default.DayZ062;
-			Filesystems.clientpath = Settings.Default.DayZ062;
-			Serverbrowser.gameVersion = "0.62.140099";
-			//this.Controls.Remove(pictureBox1);
-			//this.Controls.Remove(pictureBox2);
-		//	this.Controls.Remove(pictureBox3);
-			//this.BackImage = null;
-
-
-
-			HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
-			string received = response.Content.ReadAsStringAsync().Result;
-
-			if (response.StatusCode == HttpStatusCode.OK)
-			{
-				Console.WriteLine("Filelist ok!");
-
-				Downloader.startDownload(JArray.Parse(received));
-				metroProgressBar1.Visible = true;
-				metroLabel1.Visible = true;
-				metroLabel2.Visible = true;
-				metroLabel3.Visible = true;
-
-				pictureBox1.Enabled = false;
-				//pictureBox2.Enabled = false;
-				pictureBox3.Enabled = false;
-				pictureBox5.Enabled = false;
-				textBox2.Enabled = false;
-				pictureBox4.Enabled = false;
-
-			}
-			else
-			{
-				MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-		}
-
-
-		private async void pictureBox5_Click(object sender, EventArgs e)
-		{
-			if (String.IsNullOrEmpty(Settings.Default.DayZ046))
-			{
-				using (var fbd = new FolderBrowserDialog())
-				{
-					fbd.Description = "Select the path where you want to install DayZ 0.46 or the path of already existing files!";
-					DialogResult result = fbd.ShowDialog();
-
-
-					if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-					{
-						if (fbd.SelectedPath.Contains("steamapps"))
-						{
-							MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-							return;
-						}
-						Settings.Default.DayZ046 = fbd.SelectedPath;
-						Settings.Default.Save();
-					}
-					else
-					{
-						return;
-					}
-				}
-			}
-
-
-			if (String.IsNullOrEmpty(textBox2.Text))
-			{
-				MessageBox.Show("Please enter your username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
-			Settings.Default.username = textBox2.Text;
-			Settings.Default.Save();
-			Downloader.downloadGame = "DayZ_046";
-			Downloader.downloadcdn = "http://193.23.161.212:9660/DayZ046/";
-			Downloader.gamePath = Settings.Default.DayZ046;
-			Filesystems.clientpath = Settings.Default.DayZ046;
-			Serverbrowser.gameVersion = "0.46.126002";
-			//this.Controls.Remove(pictureBox1);
-			//this.Controls.Remove(pictureBox2);
-			//	this.Controls.Remove(pictureBox3);
-			//this.BackImage = null;
-
-
-
-			HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
-			string received = response.Content.ReadAsStringAsync().Result;
-
-			if (response.StatusCode == HttpStatusCode.OK)
-			{
-				Console.WriteLine("Filelist ok!");
-
-				Downloader.startDownload(JArray.Parse(received));
-				metroProgressBar1.Visible = true;
-				metroLabel1.Visible = true;
-				metroLabel2.Visible = true;
-				metroLabel3.Visible = true;
-
-				pictureBox1.Enabled = false;
-				//pictureBox2.Enabled = false;
-				pictureBox3.Enabled = false;
-				pictureBox5.Enabled = false;
-				textBox2.Enabled = false;
-				pictureBox4.Enabled = false;
-
-			}
-			else
-			{
-				MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-		}
-
-		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
@@ -547,16 +540,15 @@ namespace DayZ_Launcher
 			}
 		}
 
-		public void loadSettings()
-		{
-			metroLabel4.Text = "Version: " + Settings.Default.version;
-			textBox1.Text = (string.IsNullOrEmpty(Settings.Default.DayZ028) == true ? "None" : Settings.Default.DayZ028);
-			textBox3.Text = (string.IsNullOrEmpty(Settings.Default.DayZ046) == true ? "None" : Settings.Default.DayZ046);
-			textBox4.Text = (string.IsNullOrEmpty(Settings.Default.DayZ062) == true ? "None" : Settings.Default.DayZ062);
-		}
+        public void loadSettings()
+        {
+            metroLabel4.Text = "Version: " + Settings.Default.version;
+            textBox1.Text = (string.IsNullOrEmpty(Settings.Default.DayZ052) ? "None" : Settings.Default.DayZ052);
+            textBox3.Text = (string.IsNullOrEmpty(Settings.Default.DayZ046) ? "None" : Settings.Default.DayZ046);
+            textBox4.Text = (string.IsNullOrEmpty(Settings.Default.DayZ062) ? "None" : Settings.Default.DayZ062);
+        }
 
-
-		private void pictureBox2_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
 		{
 
 		}
@@ -568,83 +560,62 @@ namespace DayZ_Launcher
 			VisualEffects.MoveAnimation(metroPanel1, 810, 1250, 0);
 		}
 
-		private void pictureBox6_Click(object sender, EventArgs e)
-		{
-			using (var fbd = new FolderBrowserDialog())
-			{
-				fbd.Description = "Select the path where you want to install DayZ 0.28 or the path of already existing files!";
-				DialogResult result = fbd.ShowDialog();
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select the path where you want to install DayZ 0.52 or the path of already existing files!";
+            DialogResult result = fbd.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ052 = fbd.SelectedPath;
+                Settings.Default.Save();
+                textBox1.Text = fbd.SelectedPath;
+            }
+        }
 
 
-				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-				{
-					if (fbd.SelectedPath.Contains("steamapps"))
-					{
-						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-						return;
-					}
-					Settings.Default.DayZ028 = fbd.SelectedPath;
-					Settings.Default.Save();
-					textBox1.Text = fbd.SelectedPath;
-				}
-				else
-				{
-					return;
-				}
-			}
-		}
-
-		private void pictureBox7_Click(object sender, EventArgs e)
-		{
-			using (var fbd = new FolderBrowserDialog())
-			{
-				fbd.Description = "Select the path where you want to install DayZ 0.46 or the path of already existing files!";
-				DialogResult result = fbd.ShowDialog();
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select the path where you want to install DayZ 0.46 or the path of already existing files!";
+            DialogResult result = fbd.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ046 = fbd.SelectedPath;
+                Settings.Default.Save();
+                textBox3.Text = fbd.SelectedPath;
+            }
+        }
 
 
-				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-				{
-					if (fbd.SelectedPath.Contains("steamapps"))
-					{
-						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-						return;
-					}
 
-					Settings.Default.DayZ046 = fbd.SelectedPath;
-					Settings.Default.Save();
-					textBox3.Text = fbd.SelectedPath;
-				}
-				else
-				{
-					return;
-				}
-			}
-		}
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select the path where you want to install DayZ 0.62 or the path of already existing files!";
+            DialogResult result = fbd.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                if (fbd.SelectedPath.Contains("steamapps"))
+                {
+                    MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+                Settings.Default.DayZ062 = fbd.SelectedPath;
+                Settings.Default.Save();
+                textBox4.Text = fbd.SelectedPath;
+            }
+        }
 
-		private void pictureBox8_Click(object sender, EventArgs e)
-		{
-			using (var fbd = new FolderBrowserDialog())
-			{
-				fbd.Description = "Select the path where you want to install DayZ 0.62 or the path of already existing files!";
-				DialogResult result = fbd.ShowDialog();
-
-
-				if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-				{
-					if (fbd.SelectedPath.Contains("steamapps"))
-					{
-						MessageBox.Show("Dont use the steam path to install legacy dayz! Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-						return;
-					}
-					Settings.Default.DayZ062 = fbd.SelectedPath;
-					Settings.Default.Save();
-					textBox4.Text = fbd.SelectedPath;
-				}
-				else
-				{
-					return;
-				}
-			}
-		}
-	}
+    }
 }

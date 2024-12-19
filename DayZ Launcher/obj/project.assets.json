@@ -19,6 +19,19 @@
           }
         }
       },
+      "Facepunch.Steamworks/2.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MetroModernUI/1.4.0": {
         "type": "package",
         "compile": {
@@ -142,6 +155,23 @@
         "lib/netstandard2.0/DiscordRPC.dll",
         "lib/netstandard2.0/DiscordRPC.pdb",
         "lib/netstandard2.0/DiscordRPC.xml"
+      ]
+    },
+    "Facepunch.Steamworks/2.3.3": {
+      "sha512": "7nUjWX/uy6JbDX7Q3n8ij7vrpWjTM0S8hXO24R3ZwQ0QgY0sXVlxzh3unmYoLvKGi31rzDHqGX68I169hnHNxQ==",
+      "type": "package",
+      "path": "facepunch.steamworks/2.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Facepunch.Steamworks.jpg",
+        "content/steam_api64.dll",
+        "facepunch.steamworks.2.3.3.nupkg.sha512",
+        "facepunch.steamworks.nuspec",
+        "lib/net46/Facepunch.Steamworks.Win64.dll",
+        "lib/net46/Facepunch.Steamworks.Win64.xml",
+        "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll",
+        "lib/netstandard2.0/Facepunch.Steamworks.Win64.xml"
       ]
     },
     "MetroModernUI/1.4.0": {
@@ -334,24 +364,25 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "DiscordRichPresence >= 1.2.1.24",
+      "Facepunch.Steamworks >= 2.3.3",
       "MetroModernUI >= 1.4.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\jonas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+      "projectUniqueName": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
       "projectName": "DayZ_Launcher",
-      "projectPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\Github\\DayZ-Launcher\\DayZ Launcher\\obj\\",
+      "projectPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
+      "outputPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -371,6 +402,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -380,6 +416,10 @@
           "DiscordRichPresence": {
             "target": "Package",
             "version": "[1.2.1.24, )"
+          },
+          "Facepunch.Steamworks": {
+            "target": "Package",
+            "version": "[2.3.3, )"
           },
           "MetroModernUI": {
             "target": "Package",
@@ -409,7 +449,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   },

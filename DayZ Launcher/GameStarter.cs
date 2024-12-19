@@ -15,59 +15,47 @@ namespace DayZ_Launcher
 	internal class GameStarter
 	{
 		public static Mainframe mf;
-		public static void startGame(string game,string username, string ip)
-		{
-			string[] info = ip.Split(Convert.ToChar(":"));
-			string param = Settings.Default.startParam;
-			param = param.Replace("#IP#", info[0].ToString());
-			param = param.Replace("#PORT#", info[1].ToString());
-			param = param.Replace("#USERNAME#", username);
 
-
-
-
-			if (game == "DayZ_028")
-			{
-				if (File.Exists(Downloader.gamePath + "\\DayZ.exe"))
-				{
-					Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
-					//Mainframe.ExecuteAsAdmin(Downloader.gamePath + @"\DayZ.exe", param);
-					Discord.changeDiscordRPC("DayZ 0.28", "Playing on", "OSD Launcher", "logo");
-					mf.Invoke((MethodInvoker)delegate { mf.WindowState = FormWindowState.Minimized; });
-					return;
-				}
-				else
-				{
-					MessageBox.Show("Missing DayZ.exe");
-					return;
-				}
-			}
-			else if(game == "DayZ_062")
-			{
-				Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
-				//Mainframe.ExecuteAsAdmin(Downloader.gamePath + @"\DayZ.exe", param);
-				mf.Invoke((MethodInvoker)delegate { mf.WindowState = FormWindowState.Minimized; });	
-				Discord.changeDiscordRPC("DayZ 0.62", "Playing on", "OSD Launcher", "logo");
-				return;
-			}
-			//else if (game == "DayZ_059")
-			//{
-			//	param = param.Replace("#MOD#", @"@dayzdevru;Mods\Maps\Core;Mods\WeaponsArma2;Mods\Building;");
-			//	Process.Start(Downloader.gamePath + "\\DayZ_original.exe", param);
-			//	//	Mainframe.ExecuteAsAdmin(Downloader.gamePath + @"\DayZ_original.exe", param);
-			//	mf.Invoke((MethodInvoker)delegate { mf.WindowState = FormWindowState.Minimized; });
-			//	Discord.changeDiscordRPC("DayZ 0.59", "Playing on", "OSD Launcher", "logo");
-			//	return;
-			//}
-			else if (game == "DayZ_046")
-			{
-			//	param = param.Replace("#MOD#", @"");
-				Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
-				//	Mainframe.ExecuteAsAdmin(Downloader.gamePath + @"\DayZ_original.exe", param);
-				mf.Invoke((MethodInvoker)delegate { mf.WindowState = FormWindowState.Minimized; });
-				Discord.changeDiscordRPC("DayZ 0.46", "Playing on", "OSD Launcher", "logo");
-				return;
-			}
-		}
-	}
+        public static void startGame(string game, string username, string ip, string password = "")
+        {
+            string[] info = ip.Split(Convert.ToChar(":"));
+            string param = Settings.Default.startParam;
+            param = param.Replace("#IP#", info[0].ToString());
+            param = param.Replace("#PORT#", info[1].ToString());
+            param = param.Replace("#USERNAME#", username);
+            param = param.Replace("#PASSWORD#", password);
+            if (!File.Exists(Downloader.gamePath + "\\DayZ.exe"))
+            {
+                MessageBox.Show("Missing DayZ.exe in " + Downloader.gamePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            switch (game)
+            {
+                case "DayZ_052":
+                    Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
+                    Discord.changeDiscordRPC("DayZ 0.52", "Playing on", "OSD Launcher", "logo");
+                    mf.Invoke((MethodInvoker)delegate
+                    {
+                        mf.WindowState = FormWindowState.Minimized;
+                    });
+                    break;
+                case "DayZ_062":
+                    Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
+                    mf.Invoke((MethodInvoker)delegate
+                    {
+                        mf.WindowState = FormWindowState.Minimized;
+                    });
+                    Discord.changeDiscordRPC("DayZ 0.62", "Playing on", "OSD Launcher", "logo");
+                    break;
+                case "DayZ_046":
+                    Process.Start(Downloader.gamePath + "\\DayZ.exe", param);
+                    mf.Invoke((MethodInvoker)delegate
+                    {
+                        mf.WindowState = FormWindowState.Minimized;
+                    });
+                    Discord.changeDiscordRPC("DayZ 0.46", "Playing on", "OSD Launcher", "logo");
+                    break;
+            }
+        }
+    }
 }

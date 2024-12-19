@@ -12,7 +12,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="version" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1.0.2.4</Value>
+      <Value Profile="(Default)">1.0.4.3</Value>
     </Setting>
     <Setting Name="SteamEmu028" Type="System.String" Scope="Application">
       <Value Profile="(Default)">[Launcher]
@@ -75,7 +75,7 @@ AdminPassword =
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="startParam" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">-connect=#IP# -port=#PORT# -name=#USERNAME# -mod=#MOD#</Value>
+      <Value Profile="(Default)">-connect=#IP# -port=#PORT# -name=#USERNAME# -password=#PASSWORD#</Value>
     </Setting>
     <Setting Name="DayZ052" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
