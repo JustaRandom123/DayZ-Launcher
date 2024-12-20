@@ -492,7 +492,7 @@ namespace DayZ_Launcher
             Downloader.downloadcdn = "https://cdn.phoenixnetwork.net/oldschooldayz/DayZ046/";
             Downloader.gamePath = Settings.Default.DayZ046;
             Filesystems.clientpath = Settings.Default.DayZ046;
-            Serverbrowser.gameVersion = "0.46.126002";
+            Serverbrowser.gameVersion = "0.46.126002";  //0.46.126002
             HttpResponseMessage response = await client.GetAsync("filelist/" + Downloader.downloadGame + "/");
             string received = response.Content.ReadAsStringAsync().Result;
             if (response.StatusCode == HttpStatusCode.OK)

@@ -56,9 +56,11 @@ internal class Serverbrowser
 
             if (localServerlist.ToString() != "[]")
             {
+                MessageBox.Show(localServerlist.ToString());
                 foreach (JToken serverInfo in localServerlist)
                 {
-                    ListViewItem item = new ListViewItem("Your local server");
+
+                    ListViewItem item = new ListViewItem("Your local server with port " + serverInfo["port"].ToString());
                     item.Tag = "127.0.0.1:" + serverInfo["port"].ToString();
                     item.SubItems.Add("0 / 0");
                     item.SubItems.Add("dayz_Auto");
