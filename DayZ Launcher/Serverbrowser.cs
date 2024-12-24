@@ -101,29 +101,33 @@ internal class Serverbrowser
                     {
                         mf.listView1.Items.Add(item);
                     });
-                    //if ((await Mainframe.client.GetAsync("serverHasPassword/" + item.Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
-                    //{
-                    //    Button testButton = new Button();
-                    //    testButton.Text = "";
-                    //    //testButton.BackgroundImage = Resources._lock;   lock image is missing
-                    //    testButton.BackgroundImageLayout = ImageLayout.Stretch;
-                    //    testButton.BackColor = Color.Transparent;
-                    //    testButton.FlatStyle = FlatStyle.Flat;
-                    //    testButton.FlatAppearance.BorderSize = 0;
-                    //    mf.listView1.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
-                    //    });
-                    //    mf.listView1.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
-                    //    });
-                    //    mf.listView1.Invoke((MethodInvoker)delegate
-                    //    {
-                    //        mf.listView1.Controls.Add(testButton);
-                    //    });
-                    //}
-             
+                    if ((await Mainframe.client.GetAsync("serverHasPassword/" + item.Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    {
+                        Button testButton = new Button();
+                        testButton.Text = "";
+                        testButton.BackgroundImage = Resources.locked;
+                        testButton.BackgroundImageLayout = ImageLayout.Stretch;
+                        testButton.BackColor = Color.Transparent;
+                        testButton.FlatStyle = FlatStyle.Flat;
+                        testButton.FlatAppearance.BorderSize = 0;
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
+                        });
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
+                        });
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            mf.listView1.Controls.Add(testButton);
+                        });
+                        mf.metroProgressSpinner1.Invoke((MethodInvoker)delegate
+                        {
+                            mf.metroProgressSpinner1.Visible = false;
+                        });
+                    }
+
 
                     playersCountGeneral += Convert.ToInt32(serverData[0]["players"].ToString());
                 }           
@@ -155,38 +159,7 @@ internal class Serverbrowser
         else
         {
             MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-        }
-
-
-
-
-        //getLocalServers
-
-
-        //HttpResponseMessage responseLocalServer = await Mainframe.client.GetAsync($"getLocalServers/{localServers.getPublicIp().Result}/{gameVersion}");
-        //string receivedLocalServer = responseLocalServer.Content.ReadAsStringAsync().Result;
-        //if (responseLocalServer.StatusCode == HttpStatusCode.OK)
-        //{
-        //    JArray localServerlist = JArray.Parse(receivedLocalServer.ToString());
-        //    // MessageBox.Show(localServers.getPublicIp().Result);
-        //    if (localServerlist.ToString() != "[]")
-        //    {
-        //        //foreach (JToken serverInfo in localServerlist)
-        //        //{
-        //        //    ListViewItem item = new ListViewItem("Your local server");
-        //        //    item.Tag =  "localhost:" + serverInfo["port"].ToString();
-        //        //    item.SubItems.Add("0 / 0");
-        //        //    item.SubItems.Add("dayz_Auto");
-        //        //    item.SubItems.Add(serverInfo["version"].ToString());
-        //        //    item.SubItems.Add("");
-        //        //    mf.listView1.Invoke((MethodInvoker)delegate
-        //        //    {
-        //        //        mf.listView1.Items.Add(item);
-        //        //    });
-        //        //}
-        //        //mf.Refresh();
-        //    }
-        //}
+        }   
     }
 
     public static void checkRunningGames()
@@ -205,6 +178,50 @@ internal class Serverbrowser
         }
     }
 
+
+    public static string ShowInputBox(string title, string prompt)
+    {
+        Form inputForm = new Form();
+        Label lblPrompt = new Label();
+        TextBox txtInput = new TextBox();
+        Button btnOk = new Button();
+        string userInput = string.Empty;
+
+        inputForm.Text = title;
+        inputForm.Width = 400;
+        inputForm.Height = 150;
+        inputForm.StartPosition = FormStartPosition.CenterScreen;
+        inputForm.MinimizeBox = false;
+        inputForm.MaximizeBox = false;
+        inputForm.FormClosing += InputForm_FormClosing; ;
+
+        lblPrompt.Text = prompt;
+        lblPrompt.SetBounds(10, 10, 360, 20);
+
+        txtInput.SetBounds(10, 40, 360, 20);
+        txtInput.UseSystemPasswordChar = true;
+
+        btnOk.Text = "OK";
+        btnOk.SetBounds(300, 70, 75, 25);
+        btnOk.DialogResult = DialogResult.OK;
+
+        inputForm.Controls.AddRange(new Control[] { lblPrompt, txtInput, btnOk });
+        inputForm.AcceptButton = btnOk;
+
+        if (inputForm.ShowDialog() == DialogResult.OK)
+        {
+            userInput = txtInput.Text;
+        }
+
+        inputForm.Dispose();
+        return userInput;
+    }
+
+    private static void InputForm_FormClosing(object? sender, FormClosingEventArgs e)
+    {
+        requirePassword = false;
+    }
+
     private static async void ListView1_ItemActivate(object? sender, EventArgs e)
     {
         if (requirePassword)
@@ -216,13 +233,18 @@ internal class Serverbrowser
             selectedServer = mf.listView1.SelectedItems[0].Tag.ToString();
             if ((await Mainframe.client.GetAsync("serverHasPassword/" + mf.listView1.SelectedItems[0].Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
             {
-                requirePassword = true;  
+                requirePassword = true;
 
-                //need to readd the code
-
-
-               // mf.metroPanel2.Visible = true;
-              //  mf.metroPanel2.BringToFront();
+                string enteredPassword = ShowInputBox("Enter password", "");
+                if ((await Mainframe.client.GetAsync("isPasswordCorrect/" + enteredPassword + "/" + selectedServer)).StatusCode == HttpStatusCode.OK)
+                {
+                    checkRunningGames();
+                    GameStarter.startGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
             else
             {

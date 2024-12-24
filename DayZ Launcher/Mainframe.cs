@@ -32,37 +32,7 @@ namespace DayZ_Launcher
             client.BaseAddress = new Uri("http://134.255.252.219:8000/");
             pingTimer.Elapsed += PingTimer_Elapsed;
             pingTimer.AutoReset = true;
-            Discord.Initialize();
-            //InitializeComponent();
-            //this.pictureBox1.MouseEnter += PictureBox1_MouseEnter;
-            //this.pictureBox1.MouseLeave += PictureBox1_MouseLeave;
-
-            ////this.pictureBox2.MouseEnter += PictureBox2_MouseEnter;  //059
-            ////this.pictureBox2.MouseLeave += PictureBox2_MouseLeave;
-
-
-
-            //this.pictureBox3.MouseEnter += PictureBox3_MouseEnter;
-            //this.pictureBox3.MouseLeave += PictureBox3_MouseLeave;
-
-
-            //this.pictureBox5.MouseEnter += PictureBox5_MouseEnter;
-            //this.pictureBox5.MouseLeave += PictureBox5_MouseLeave;
-
-
-
-            //this.FormClosing += Mainframe_FormClosing;
-
-            //Downloader.mf = this;
-            //GameStarter.mf = this;
-            //Serverbrowser.mf = this;
-            //VisualEffects.mf = this;
-            //client.Timeout = TimeSpan.FromSeconds(14);
-            //client.BaseAddress = new Uri("http://134.255.252.219:8000/");
-            //pingTimer.Elapsed += PingTimer_Elapsed;
-            //pingTimer.AutoReset = true;
-
-            //Discord.Initialize();
+            Discord.Initialize();      
         }
 
 		private void Mainframe_FormClosing(object? sender, FormClosingEventArgs e)
@@ -82,13 +52,7 @@ namespace DayZ_Launcher
 		{
 			pictureBox1.Size = new Size(pictureBox1.Width - 8, pictureBox1.Height - 8);
 			pictureBox1.Refresh();
-		}
-
-		//private void PictureBox2_MouseLeave(object? sender, EventArgs e)
-		//{
-		//	pictureBox2.Size = new Size(pictureBox2.Width - 8, pictureBox2.Height - 8);
-		//	pictureBox2.Refresh();
-		//}
+		}	
 
 		private void PictureBox3_MouseLeave(object? sender, EventArgs e)
 		{

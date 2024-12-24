@@ -61,7 +61,7 @@ namespace DayZ_Launcher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.0.4.4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0.4.5")]
         public string version {
             get {
                 return ((string)(this["version"]));

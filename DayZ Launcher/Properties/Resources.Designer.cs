@@ -63,16 +63,6 @@ namespace DayZ_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _028 {
-            get {
-                object obj = ResourceManager.GetObject("028", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _0281 {
             get {
                 object obj = ResourceManager.GetObject("0281", resourceCulture);
@@ -216,6 +206,16 @@ namespace DayZ_Launcher.Properties {
         internal static System.Drawing.Bitmap intro {
             get {
                 object obj = ResourceManager.GetObject("intro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap locked {
+            get {
+                object obj = ResourceManager.GetObject("locked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
