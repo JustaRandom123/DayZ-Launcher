@@ -56,16 +56,44 @@ internal class Serverbrowser
 
             if (localServerlist.ToString() != "[]")
             {
-                MessageBox.Show(localServerlist.ToString());
+              //  MessageBox.Show(localServerlist.ToString());
                 foreach (JToken serverInfo in localServerlist)
                 {
 
-                    ListViewItem item = new ListViewItem("Your local server with port " + serverInfo["port"].ToString());
+                    ListViewItem item = new ListViewItem(serverInfo["name"].ToString());
                     item.Tag = "127.0.0.1:" + serverInfo["port"].ToString();
                     item.SubItems.Add("0 / 0");
                     item.SubItems.Add("dayz_Auto");
                     item.SubItems.Add(serverInfo["version"].ToString());
                     item.SubItems.Add("");
+
+                    //if ((await Mainframe.client.GetAsync("serverHasPassword/" + serverInfo["ip"].ToString() + ":" + serverInfo["port"].ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    //{
+                    //    //Button testButton = new Button();
+                    //    //testButton.Text = "";
+                    //    //testButton.BackgroundImage = Resources.locked;
+                    //    //testButton.BackgroundImageLayout = ImageLayout.Stretch;
+                    //    //testButton.BackColor = Color.Transparent;
+                    //    //testButton.FlatStyle = FlatStyle.Flat;
+                    //    //testButton.FlatAppearance.BorderSize = 0;
+                    //    //mf.listView1.Invoke((MethodInvoker)delegate
+                    //    //{
+                    //    //    testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
+                    //    //});
+                    //    //mf.listView1.Invoke((MethodInvoker)delegate
+                    //    //{
+                    //    //    testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
+                    //    //});
+                    //    //mf.listView1.Invoke((MethodInvoker)delegate
+                    //    //{
+                    //    //    mf.listView1.Controls.Add(testButton);
+                    //    //});
+                    //    //mf.metroProgressSpinner1.Invoke((MethodInvoker)delegate
+                    //    //{
+                    //    //    mf.metroProgressSpinner1.Visible = false;
+                    //    //});
+                    //}
+
                     mf.listView1.Invoke((MethodInvoker)delegate
                     {
                         mf.listView1.Items.Add(item);
