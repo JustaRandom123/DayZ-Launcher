@@ -45,70 +45,14 @@ internal class Serverbrowser
             mf.metroProgressSpinner1.BringToFront();
         });
 
-        ///loading local servers
-
-
-        HttpResponseMessage responseLocalServer = await Mainframe.client.GetAsync($"getLocalServers/{localServers.localIp}/{gameVersion}");
-        string receivedLocalServer = responseLocalServer.Content.ReadAsStringAsync().Result;
-        if (responseLocalServer.StatusCode == HttpStatusCode.OK)
-        {
-            JArray localServerlist = JArray.Parse(receivedLocalServer.ToString());
-
-            if (localServerlist.ToString() != "[]")
-            {
-              //  MessageBox.Show(localServerlist.ToString());
-                foreach (JToken serverInfo in localServerlist)
-                {
-
-                    ListViewItem item = new ListViewItem(serverInfo["name"].ToString());
-                    item.Tag = "127.0.0.1:" + serverInfo["port"].ToString();
-                    item.SubItems.Add("0 / 0");
-                    item.SubItems.Add("dayz_Auto");
-                    item.SubItems.Add(serverInfo["version"].ToString());
-                    item.SubItems.Add("");
-
-                    //if ((await Mainframe.client.GetAsync("serverHasPassword/" + serverInfo["ip"].ToString() + ":" + serverInfo["port"].ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
-                    //{
-                    //    //Button testButton = new Button();
-                    //    //testButton.Text = "";
-                    //    //testButton.BackgroundImage = Resources.locked;
-                    //    //testButton.BackgroundImageLayout = ImageLayout.Stretch;
-                    //    //testButton.BackColor = Color.Transparent;
-                    //    //testButton.FlatStyle = FlatStyle.Flat;
-                    //    //testButton.FlatAppearance.BorderSize = 0;
-                    //    //mf.listView1.Invoke((MethodInvoker)delegate
-                    //    //{
-                    //    //    testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
-                    //    //});
-                    //    //mf.listView1.Invoke((MethodInvoker)delegate
-                    //    //{
-                    //    //    testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
-                    //    //});
-                    //    //mf.listView1.Invoke((MethodInvoker)delegate
-                    //    //{
-                    //    //    mf.listView1.Controls.Add(testButton);
-                    //    //});
-                    //    //mf.metroProgressSpinner1.Invoke((MethodInvoker)delegate
-                    //    //{
-                    //    //    mf.metroProgressSpinner1.Visible = false;
-                    //    //});
-                    //}
-
-                    mf.listView1.Invoke((MethodInvoker)delegate
-                    {
-                        mf.listView1.Items.Add(item);
-                    });
-                }
-            }
-        }
-
-
-
+        
+     
 
         HttpResponseMessage response = await Mainframe.client.GetAsync("getServerList/" + gameVersion + "/");
         string received = response.Content.ReadAsStringAsync().Result;
         if (response.StatusCode == HttpStatusCode.OK)
         {
+           // MessageBox.Show(received.ToString());
             JArray serverlist = JArray.Parse(received.ToString());
             if (!string.IsNullOrEmpty(serverlist[0].ToString()))
             {
@@ -187,7 +131,65 @@ internal class Serverbrowser
         else
         {
             MessageBox.Show("Error occured! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-        }   
+        }
+
+
+
+        ///loading local servers
+
+
+        HttpResponseMessage responseLocalServer = await Mainframe.client.GetAsync($"getLocalServers/{localServers.localIp}/{gameVersion}");
+        string receivedLocalServer = responseLocalServer.Content.ReadAsStringAsync().Result;
+        if (responseLocalServer.StatusCode == HttpStatusCode.OK)
+        {
+            JArray localServerlist = JArray.Parse(receivedLocalServer.ToString());
+
+            if (localServerlist.ToString() != "[]")
+            {
+                //  MessageBox.Show(localServerlist.ToString());
+                foreach (JToken serverInfo in localServerlist)
+                {
+
+                    ListViewItem item = new ListViewItem(serverInfo["name"].ToString());
+                    item.Tag = serverInfo["ip"].ToString() + ":" + serverInfo["port"].ToString();
+                    item.SubItems.Add("0 / 0");
+                    item.SubItems.Add("dayz_Auto");
+                    item.SubItems.Add(serverInfo["version"].ToString());
+                    item.SubItems.Add("");
+                    mf.listView1.Invoke((MethodInvoker)delegate
+                    {
+                        mf.listView1.Items.Add(item);
+                    });
+
+                    if ((await Mainframe.client.GetAsync("serverHasPassword/" + serverInfo["ip"].ToString() + ":" + serverInfo["port"].ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    {
+                        Button testButton = new Button();
+                        testButton.Text = "";
+                        testButton.BackgroundImage = Resources.locked;
+                        testButton.BackgroundImageLayout = ImageLayout.Stretch;
+                        testButton.BackColor = Color.Transparent;
+                        testButton.FlatStyle = FlatStyle.Flat;
+                        testButton.FlatAppearance.BorderSize = 0;
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            testButton.Size = new Size(item.SubItems[4].Bounds.Size.Width, item.SubItems[4].Bounds.Size.Height);
+                        });
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            testButton.Location = new Point(item.SubItems[4].Bounds.Location.X, item.SubItems[4].Bounds.Location.Y);
+                        });
+                        mf.listView1.Invoke((MethodInvoker)delegate
+                        {
+                            mf.listView1.Controls.Add(testButton);
+                        });
+                        //mf.metroProgressSpinner1.Invoke((MethodInvoker)delegate
+                        //{
+                        //    mf.metroProgressSpinner1.Visible = false;
+                        //});
+                    }
+                }
+            }
+        }
     }
 
     public static void checkRunningGames()
