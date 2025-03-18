@@ -48,7 +48,7 @@ internal class Serverbrowser
         
      
 
-        HttpResponseMessage response = await Mainframe.client.GetAsync("getServerList/" + gameVersion + "/");
+        HttpResponseMessage response = await Mainframe.client.GetAsync($"getServerList/{gameVersion}/");
         string received = response.Content.ReadAsStringAsync().Result;
         if (response.StatusCode == HttpStatusCode.OK)
         {
@@ -73,7 +73,7 @@ internal class Serverbrowser
                     {
                         mf.listView1.Items.Add(item);
                     });
-                    if ((await Mainframe.client.GetAsync("serverHasPassword/" + item.Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    if ((await Mainframe.client.GetAsync($"serverHasPassword/{item.Tag.ToString()}/")).StatusCode == HttpStatusCode.Forbidden)
                     {
                         Button testButton = new Button();
                         testButton.Text = "";
@@ -161,7 +161,7 @@ internal class Serverbrowser
                         mf.listView1.Items.Add(item);
                     });
 
-                    if ((await Mainframe.client.GetAsync("serverHasPassword/" + serverInfo["ip"].ToString() + ":" + serverInfo["port"].ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+                    if ((await Mainframe.client.GetAsync($"serverHasPassword/{serverInfo["ip"].ToString()}:{serverInfo["port"].ToString()}/")).StatusCode == HttpStatusCode.Forbidden)
                     {
                         Button testButton = new Button();
                         testButton.Text = "";
@@ -261,12 +261,12 @@ internal class Serverbrowser
         if (mf.listView1.SelectedItems.Count == 1)
         {
             selectedServer = mf.listView1.SelectedItems[0].Tag.ToString();
-            if ((await Mainframe.client.GetAsync("serverHasPassword/" + mf.listView1.SelectedItems[0].Tag.ToString() + "/")).StatusCode == HttpStatusCode.Forbidden)
+            if ((await Mainframe.client.GetAsync($"serverHasPassword/{mf.listView1.SelectedItems[0].Tag.ToString()}/")).StatusCode == HttpStatusCode.Forbidden)
             {
                 requirePassword = true;
 
                 string enteredPassword = ShowInputBox("Enter password", "");
-                if ((await Mainframe.client.GetAsync("isPasswordCorrect/" + enteredPassword + "/" + selectedServer)).StatusCode == HttpStatusCode.OK)
+                if ((await Mainframe.client.GetAsync($"isPasswordCorrect/{enteredPassword}/{selectedServer}")).StatusCode == HttpStatusCode.OK)
                 {
                     checkRunningGames();
                     GameStarter.startGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());

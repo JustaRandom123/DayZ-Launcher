@@ -373,7 +373,7 @@
 			this.groupBox1.Size = new System.Drawing.Size(430, 53);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "DayZ 0.28";
+			this.groupBox1.Text = "DayZ 0.52";
 			// 
 			// pictureBox6
 			// 
