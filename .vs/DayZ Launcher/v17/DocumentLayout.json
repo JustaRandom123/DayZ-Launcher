@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "F:\\Documents\\GitHub\\DayZ-Launcher\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|F:\\Documents\\GitHub\\DayZ-Launcher\\dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
     },
     {
@@ -15,12 +15,12 @@
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\serverbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\serverbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\dayz_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -93,7 +93,7 @@
               "RelativeDocumentMoniker": "DayZ Launcher\\Mainframe.cs",
               "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
               "RelativeToolTip": "DayZ Launcher\\Mainframe.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAAAIQAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAnwBQBAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T13:54:22.65Z",
               "EditorCaption": ""
@@ -124,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Serverbrowser.cs",
               "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Serverbrowser.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Serverbrowser.cs",
@@ -220,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Program.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Program.cs",
@@ -228,8 +228,7 @@
               "RelativeToolTip": "DayZ Launcher\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T14:57:50.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T14:57:50.806Z"
             },
             {
               "$type": "Document",

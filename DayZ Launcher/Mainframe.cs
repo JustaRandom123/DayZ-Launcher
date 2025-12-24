@@ -274,7 +274,7 @@ namespace DayZ_Launcher
             Settings.Default.username = textBox2.Text;
             Settings.Default.Save();
             Downloader.downloadGame = "DayZ_052";
-            Downloader.downloadcdn = "https://cdn.phoenixnetwork.net/oldschooldayz/DayZ052/";
+            Downloader.downloadcdn = "https://cdn-mxbikeslauncher.de/OldschoolDayZ/052/";
             Downloader.gamePath = Settings.Default.DayZ052;
             Filesystems.clientpath = Settings.Default.DayZ052;
             Serverbrowser.gameVersion = "0.52.126010";
