@@ -1,61 +1,61 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Coding Projects\\DayZ-Launcher\\",
+  "WorkspaceRootPath": "F:\\Documents\\GitHub\\DayZ-Launcher\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|E:\\Coding Projects\\DayZ-Launcher\\dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\dayz_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\dayz_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\serverbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\serverbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\serverbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\localservers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\localservers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\steamhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\steamhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|E:\\Coding Projects\\DayZ-Launcher\\dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|F:\\Documents\\GitHub\\DayZ-Launcher\\dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|F:\\Documents\\GitHub\\DayZ-Launcher\\dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\properties\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\dayz_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\dayz_launcher.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\localservers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\localservers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\steamhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\steamhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\discord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\discord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\discord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\downloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\hashchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\hashchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\hashchecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\visualeffects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\visualeffects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\visualeffects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|e:\\coding projects\\dayz-launcher\\dayz launcher\\gamestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|f:\\documents\\github\\dayz-launcher\\dayz launcher\\gamestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6AF68FF6-8568-4A1D-A7EC-3A125A977161}|DayZ Launcher\\DayZ_Launcher.csproj|solutionrelative:dayz launcher\\gamestarter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -66,41 +66,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Mainframe.Designer.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.Designer.cs",
-              "RelativeDocumentMoniker": "DayZ Launcher\\Mainframe.Designer.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.Designer.cs",
-              "RelativeToolTip": "DayZ Launcher\\Mainframe.Designer.cs",
-              "ViewState": "AgIAAF8BAAAAAAAAAAAAAHcBAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T20:59:38.49Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Mainframe.Designer.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.Designer.cs",
+              "RelativeDocumentMoniker": "DayZ Launcher\\Mainframe.Designer.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.Designer.cs",
+              "RelativeToolTip": "DayZ Launcher\\Mainframe.Designer.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAAAHcBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T20:59:38.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Mainframe.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Mainframe.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
               "RelativeToolTip": "DayZ Launcher\\Mainframe.cs",
-              "ViewState": "AgIAAAoBAAAAAAAAAAAAABcBAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAABgBAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T13:54:22.65Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SteamHandler.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\SteamHandler.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\SteamHandler.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\SteamHandler.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\SteamHandler.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\SteamHandler.cs",
               "RelativeToolTip": "DayZ Launcher\\SteamHandler.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,9 +113,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "VisualEffects.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\VisualEffects.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\VisualEffects.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\VisualEffects.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\VisualEffects.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\VisualEffects.cs",
               "RelativeToolTip": "DayZ Launcher\\VisualEffects.cs",
               "ViewState": "AgIAABwAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -120,24 +123,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Serverbrowser.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Serverbrowser.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Serverbrowser.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Serverbrowser.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Serverbrowser.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Serverbrowser.cs",
               "RelativeToolTip": "DayZ Launcher\\Serverbrowser.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAAAJUAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAADIAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T13:56:14.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Mainframe.cs [Entwurf]",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Mainframe.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs [Entwurf]",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Mainframe.cs [Entwurf]",
               "RelativeToolTip": "DayZ Launcher\\Mainframe.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-01T11:14:17.567Z"
@@ -146,9 +149,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "GameStarter.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\GameStarter.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\GameStarter.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\GameStarter.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\GameStarter.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\GameStarter.cs",
               "RelativeToolTip": "DayZ Launcher\\GameStarter.cs",
               "ViewState": "AgIAABQAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -158,9 +161,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Downloader.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Downloader.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Downloader.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Downloader.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Downloader.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Downloader.cs",
               "RelativeToolTip": "DayZ Launcher\\Downloader.cs",
               "ViewState": "AgIAABgAAAAAAAAAAADwvykAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,35 +171,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DayZ_Launcher",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
               "RelativeDocumentMoniker": "DayZ Launcher\\DayZ_Launcher.csproj",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
               "RelativeToolTip": "DayZ Launcher\\DayZ_Launcher.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-24T13:58:27.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T13:58:27.959Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Settings.settings",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Properties\\Settings.settings",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Properties\\Settings.settings",
               "RelativeDocumentMoniker": "DayZ Launcher\\Properties\\Settings.settings",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Properties\\Settings.settings",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Properties\\Settings.settings",
               "RelativeToolTip": "DayZ Launcher\\Properties\\Settings.settings",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002767|",
-              "WhenOpened": "2024-12-24T14:58:49.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T14:58:49.541Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "HashChecker.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\HashChecker.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\HashChecker.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\HashChecker.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\HashChecker.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\HashChecker.cs",
               "RelativeToolTip": "DayZ Launcher\\HashChecker.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -204,11 +205,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "localServers.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\localServers.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\localServers.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\localServers.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\localServers.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\localServers.cs",
               "RelativeToolTip": "DayZ Launcher\\localServers.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -218,9 +219,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Program.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Program.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Program.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Program.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Program.cs",
               "RelativeToolTip": "DayZ Launcher\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -230,9 +231,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Discord.cs",
-              "DocumentMoniker": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Discord.cs",
+              "DocumentMoniker": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Discord.cs",
               "RelativeDocumentMoniker": "DayZ Launcher\\Discord.cs",
-              "ToolTip": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\Discord.cs",
+              "ToolTip": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\Discord.cs",
               "RelativeToolTip": "DayZ Launcher\\Discord.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

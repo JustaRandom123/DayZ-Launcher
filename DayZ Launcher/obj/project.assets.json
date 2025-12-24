@@ -370,20 +370,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jonas\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "E:\\NuGetPackages": {},
+    "E:\\Visual Studio Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+      "projectUniqueName": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
       "projectName": "DayZ_Launcher",
-      "projectPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
-      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "E:\\Coding Projects\\DayZ-Launcher\\DayZ Launcher\\obj\\",
+      "projectPath": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\DayZ_Launcher.csproj",
+      "packagesPath": "E:\\NuGetPackages",
+      "outputPath": "F:\\Documents\\GitHub\\DayZ-Launcher\\DayZ Launcher\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "E:\\Visual Studio Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -414,7 +414,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -456,7 +456,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },
