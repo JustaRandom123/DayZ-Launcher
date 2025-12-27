@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("JustaRandom")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dca6a9023d0d85bb06017186ffb28c3d9dc189a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6344b604f970ba51bc68352def1bd382e89f78f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DayZ_Launcher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DayZ_Launcher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

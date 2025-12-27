@@ -269,7 +269,7 @@ internal class Serverbrowser
                 if ((await Mainframe.client.GetAsync($"isPasswordCorrect/{enteredPassword}/{selectedServer}")).StatusCode == HttpStatusCode.OK)
                 {
                     checkRunningGames();
-                    GameStarter.startGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());
+                    GameStarter.StartGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());
                 }
                 else
                 {
@@ -279,7 +279,7 @@ internal class Serverbrowser
             else
             {
                 checkRunningGames();
-                GameStarter.startGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());
+                GameStarter.StartGame(Downloader.downloadGame, mf.textBox2.Text, mf.listView1.SelectedItems[0].Tag.ToString());
             }
         }
         else
