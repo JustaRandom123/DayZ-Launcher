@@ -1,56 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using DiscordRPC;
 using DiscordRPC.Logging;
 
-
 namespace DayZ_Launcher
 {
-	internal class Discord
-	{
-		public static DiscordRpcClient client;
+    internal class Discord
+    {
+        public static DiscordRpcClient client;
 
-		public static void Initialize()
-		{
+        public static void Initialize()
+        {
+            // Evita inicializar duas vezes
+            if (client != null && client.IsInitialized)
+                return;
 
-			client = new DiscordRpcClient("975134151814570034");
+            client = new DiscordRpcClient("975134151814570034")
+            {
+                Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Warning
+                }
+            };
 
-			//Set the logger
-			client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+            client.OnReady += (sender, e) =>
+            {
+                Console.WriteLine($"Received Ready from user {e.User.Username}");
+            };
 
-			//Subscribe to events
-			client.OnReady += (sender, e) =>
-			{
-				Console.WriteLine("Received Ready from user {0}", e.User.Username);
-			};
+            client.OnPresenceUpdate += (sender, e) =>
+            {
+                Console.WriteLine($"Received Update! {e.Presence}");
+            };
 
-			client.OnPresenceUpdate += (sender, e) =>
-			{
-				Console.WriteLine("Received Update! {0}", e.Presence);
-			};
+            client.Initialize();
 
-			//Connect to the RPC
-			client.Initialize();
+            changeDiscordRPC("Running Launcher", "", "DayZ Launcher", "logo");
+        }
 
-			changeDiscordRPC("Running Launcher", "", "DayZ Launcher", "logo");
-		}
+        public static void changeDiscordRPC(
+            string status,
+            string details,
+            string imageText,
+            string imageKey)
+        {
+            if (client == null || !client.IsInitialized)
+                return;
 
-
-		public static void changeDiscordRPC(string status, string details, string imageText, string imageKey)
-		{
-			client.SetPresence(new RichPresence()
-			{
-				Details = details,
-				State = status,
-				Assets = new Assets()
-				{
-					LargeImageKey = imageKey,
-					LargeImageText = imageText
-				}
-			});
-		}
-	}
+            client.SetPresence(new RichPresence
+            {
+                State = status,
+                Details = details,
+                Assets = new Assets
+                {
+                    LargeImageKey = imageKey,
+                    LargeImageText = imageText
+                }
+            });
+        }
+    }
 }
